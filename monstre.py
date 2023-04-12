@@ -10,6 +10,8 @@ class Monstre():
         self.velocity = 5 
         self.porte = 1 
         self.magie = 0
+        self.image = pygame.image.load('')
+        self.rect = self.image.get_rect()
         
 class squelette(Monstre):
     def __init__(self, game):
