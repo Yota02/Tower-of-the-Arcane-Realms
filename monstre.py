@@ -9,7 +9,6 @@ class Monstre():
 
 
 class squelette(Monstre):
-
     def __init__(self, game):
         super().__init__(game, "Squelette")
         
