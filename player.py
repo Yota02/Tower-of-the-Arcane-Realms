@@ -3,8 +3,8 @@ from projectil import Projectile
 
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self) :
-        super().__init__()
+    def __init__(self, name) :
+        super().__init__(name)
         self.vie = 100
         self.max_vie = 100
         self.attack = 1 
@@ -27,4 +27,9 @@ class Player(pygame.sprite.Sprite):
         self.rect.x += self.vitesse
 
     def fleche(self):
-        fleche = Fleche()
+        fleche = Projectile.Fleche()
+
+class mage(Player):
+
+    def __init__(self, game):
+        super().__init__(game, "mage")
