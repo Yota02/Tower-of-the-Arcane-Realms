@@ -1,4 +1,5 @@
 import pygame
+from projectil import Projectile
 
 class Player(pygame.sprite.Sprite):
 
@@ -24,3 +25,6 @@ class Player(pygame.sprite.Sprite):
 
     def mouvement_droite(self):
         self.rect.x += self.vitesse
+
+    def fleche(self):
+        fleche = Fleche()

@@ -21,7 +21,6 @@ while running:
 
     pygame.display.flip()
 
-
     if game.pressed.get(pygame.K_z) and game.player.rect.y < hauteur_ecran :
         game.player.mouvement_haut()
     elif game.pressed.get(pygame.K_s) and game.player.rect.y > hauteur_ecran:
@@ -41,4 +40,5 @@ while running:
             game.pressed[event.key] = True
         elif event.type  == pygame.KEYUP:
             game.pressed[event.key] = False
+            
     pygame.display.update()
