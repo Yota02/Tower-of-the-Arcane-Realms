@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.max_vie = 100
         self.attack = 1 
         self.vitesse = 5 
-        self.image = pygame.image.load("assets/personnage/player.jpg")
+        self.image = pygame.image.load("assets/personnage/female/female_nu.png")
         self.rect = self.image.get_rect()
         self.rect.x = 500
         self.rect.y = 500

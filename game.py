@@ -12,6 +12,7 @@ class Game:
         self.pressed = {}
         self.hauteur_ecran = pygame.display.Info().current_h
         self.largeur_ecran = pygame.display.Info().current_w
+        self.background = 1
 
     def update(self, screen):
 

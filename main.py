@@ -1,14 +1,11 @@
 import pygame
 from game import Game
 
-
 pygame.init()
 pygame.display.set_caption("Tower of the Arcane Realms")
 
-
 game = Game()
 running = True
-
 
 ecran_taille = pygame.display.Info().current_w, pygame.display.Info().current_h
 screen = pygame.display.set_mode(ecran_taille)
@@ -30,11 +27,26 @@ quit_rect = play_bouton.get_rect()
 quit_rect.x = game.largeur_ecran - quit_rect.width + 20
 quit_rect.y = game.hauteur_ecran - quit_rect.height + 20
 
-while running:
-    screen.blit(background, (0, 0))
+male = pygame.image.load('assets/personnage/male/male_nu.png')
+male_rect = male.get_rect()
+male_rect.x = (game.largeur_ecran - male_rect.width) / 2 
+male_rect.y = (game.hauteur_ecran - male_rect.height) / 2
 
-    if game.is_playing:
+female = pygame.image.load('assets/personnage/female/female_nu.png')
+female_rect = female.get_rect()
+female_rect.x = (game.largeur_ecran - female_rect.width) / 4
+female_rect.y = (game.hauteur_ecran - female_rect.height) / 2
+
+while running:
+    
+    if game.background == 1 or 2:
+        screen.blit(background, (0, 0))
+
+    if game.is_playing and game.background == 3:
         game.update(screen)
+    elif game.is_playing and game.background == 2:
+        screen.blit(male, (male_rect.x, male_rect.y) )
+        screen.blit(female, (female_rect.x, female_rect.y))
     else:
         screen.blit(titre, (titre_x, titre_y))
         screen.blit(play_bouton, (play_rect.x, play_rect.y))
@@ -52,6 +64,7 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if play_rect.collidepoint(event.pos):
                 game.is_playing = True
+                game.background += 1
             elif quit_rect.collidepoint(event.pos):
                 running = False
                 pygame.quit()
