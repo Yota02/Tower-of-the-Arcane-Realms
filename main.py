@@ -62,11 +62,18 @@ while running:
         elif event.type  == pygame.KEYUP:
             game.pressed[event.key] = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if play_rect.collidepoint(event.pos):
+            if play_rect.collidepoint(event.pos) and game.background == 1:
                 game.is_playing = True
                 game.background += 1
-            elif quit_rect.collidepoint(event.pos):
+            elif quit_rect.collidepoint(event.pos) and game.background == 1:
                 running = False
                 pygame.quit()
+            elif female_rect.collidepoint(event.pos) and game.background == 2:
+                game.sex = 2
+                game.background += 1
+            elif male_rect.collidepoint(event.pos) and game.background == 2:
+                game.sex = 1
+                game.background += 1
+            
 
     pygame.display.update()
