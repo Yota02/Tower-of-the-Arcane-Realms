@@ -11,9 +11,16 @@ screen = pygame.display.set_mode(ecran_taille)
 background = pygame.image.load('assets/background/48.jpg')
 
 titre = pygame.image.load('assets/utilitaire/titre.png')
-titre_rect = titre.get_rect()
-titre_x = (game.largeur_ecran - titre_rect.width) / 2
-titre_y = (game.hauteur_ecran - titre_rect.height) / 4
+titre_rect = titre.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 4))
+
+sexe_text = pygame.image.load('assets/utilitaire/texte/sexe.png')
+sexe_text_rect = sexe_text.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 7))
+
+class_text = pygame.image.load('assets/utilitaire/texte/classe.png')
+class_text_rect = class_text.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 7))
+
+carac_text = pygame.image.load('assets/utilitaire/texte/carac.png')
+carac_text_rect = carac_text.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 7))
 
 play_buton = pygame.image.load('assets/utilitaire/play_button.png')
 play_rect = play_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 2))

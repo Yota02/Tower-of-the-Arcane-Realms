@@ -15,6 +15,7 @@ class Game:
         self.largeur_ecran = pygame.display.Info().current_w
         self.sex = 0
         self.classe = 0
+        self.carac_point = 10
 
     def update(self, screen):
 

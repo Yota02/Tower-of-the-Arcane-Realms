@@ -5,13 +5,12 @@ from image import *
 pygame.init()
 pygame.display.set_caption("Tower of the Arcane Realms")
 
+font = pygame.font.SysFont("Arial", 36)
+BLACK = (0, 0, 0)
 game = Game()
 running = True
 
-
-
 while running:
-    
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
@@ -30,7 +29,6 @@ while running:
             else:
                 valider_buton_affichee = valider_buton
                 valider_buton_affichee_rect = valider_buton_rect
-
             if play_rect.collidepoint(event.pos) and game.background == 1:
                 play_affichee = play_grossie
                 play_affichee_rect = play_grossie_rect
@@ -43,13 +41,13 @@ while running:
             else:
                 arc_affichee = arc
                 arc_affichee_rect = arc_rect
-            if female_rect.collidepoint(event.pos) and game.background == 2:
+            if female_rect.collidepoint(event.pos) and game.background == 2 and selction_sex == False:
                 female_affichee = female_grossie
                 female_affichee_rect = female_grossie_rect
             else:
                 female_affichee = female
                 female_affichee_rect = female_rect
-            if male_rect.collidepoint(event.pos) and game.background == 2:
+            if male_rect.collidepoint(event.pos) and game.background == 2 and selction_sex == False:
                 male_affichee = male_grossie
                 male_affichee_rect = male_grossie_rect
             else:
@@ -88,10 +86,11 @@ while running:
                 running = False
                 pygame.quit()
 
-            elif valider_buton_rect.collidepoint(event.pos) and game.background == 2:
-                valider_buton_affichee = valider_buton_grossie
-                valider_buton_affichee_rect = valider_buton_grossie_rect
+            elif valider_buton_rect.collidepoint(event.pos) and game.background == 2 and selction_sex:
                 game.background += 1
+            elif valider_buton_rect.collidepoint(event.pos) and game.background == 3 and selction_class :
+                game.background += 1
+
             elif female_rect.collidepoint(event.pos) and game.background == 2:
                 female_affichee = female_grossie
                 female_affichee_rect = female_grossie_rect
@@ -123,13 +122,15 @@ while running:
                 game.classe = 4
                 selction_class = True
 
-    if game.background == 1 or 2 or 3:
+    if game.background == 1 or 2 or 3 or 4:
         screen.blit(background, (0, 0))
 
-    if game.is_playing and game.background == 6:
-        game.update(screen)
-
+    if game.background == 1:
+        screen.blit(titre, titre_rect)
+        screen.blit(play_affichee, play_affichee_rect)
+        screen.blit(quit_buton, (quit_rect.x, quit_rect.y))  
     elif game.is_playing and game.background == 2:
+        screen.blit(sexe_text, sexe_text_rect)
         screen.blit(female_affichee, female_affichee_rect)
         screen.blit(male_affichee, male_affichee_rect)
         screen.blit(valider_buton, valider_buton_rect)
@@ -137,8 +138,8 @@ while running:
             screen.blit(valider_buton_affichee, valider_buton_affichee_rect)
         else:
             screen.blit(valider_buton_non, valider_buton_non_rect)
-
     elif game.is_playing and game.background == 3:
+        screen.blit(class_text, class_text_rect)
         screen.blit(livre_affichee, livre_affichee_rect)
         screen.blit(epee_affichee, epee_affichee_rect)
         screen.blit(arc_affichee, arc_affichee_rect)
@@ -147,9 +148,14 @@ while running:
             screen.blit(valider_buton_affichee, valider_buton_affichee_rect)
         else:
             screen.blit(valider_buton_non, valider_buton_non_rect)
-    else:
-        screen.blit(titre, (titre_x, titre_y))
-        screen.blit(play_affichee, play_affichee_rect)
-        screen.blit(quit_buton, (quit_rect.x, quit_rect.y))        
+    elif game.is_playing and game.background == 4:
+        screen.blit(carac_text, carac_text_rect)
+
+        text = font.render(str(game.carac_point), True, BLACK)
+        screen.blit(text, (150, 150))
+
+
+    elif game.is_playing and game.background == 6:
+        game.update(screen)
 
     pygame.display.update()
