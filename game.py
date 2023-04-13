@@ -5,14 +5,14 @@ from monstre import Monstre
 class Game:
 
     def __init__(self):
-        self.is_playing = False
+        self.is_playing = True
+        self.background = 3
+        self.pressed = {}
         self.player = Player()
         self.all_player = pygame.sprite.Group()
         self.all_monstre = pygame.sprite.Group()
-        self.pressed = {}
         self.hauteur_ecran = pygame.display.Info().current_h
         self.largeur_ecran = pygame.display.Info().current_w
-        self.background = 1
         self.sex = 0
 
     def update(self, screen):
