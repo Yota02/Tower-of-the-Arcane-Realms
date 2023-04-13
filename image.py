@@ -4,6 +4,7 @@ from game import Game
 pygame.init()
 game = Game()
 selction_sex = False
+selction_class = False
 
 ecran_taille = pygame.display.Info().current_w, pygame.display.Info().current_h
 screen = pygame.display.set_mode(ecran_taille)
@@ -19,11 +20,15 @@ play_rect = play_bouton.get_rect()
 play_rect.x = (game.largeur_ecran - play_rect.width) / 2
 play_rect.y = (game.hauteur_ecran - play_rect.height) / 2
 
-valider_buton = pygame.image.load('assets\utilitaire\valider.png')
-valider_buton_rect = valider_buton.get_rect((game.largeur_ecran / 2, game.hauteur_ecran / 2))
+valider_buton = pygame.image.load('assets/utilitaire/valider.png')
+valider_buton_rect = valider_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran * 4 / 5))
+valider_buton_grossie = pygame.transform.scale(valider_buton, (int(valider_buton_rect.width * 1.1), int(valider_buton_rect.height * 1.1)))
+valider_buton_grossie_rect = valider_buton_grossie.get_rect(center=valider_buton_rect.center)
 
-valider_buton_non = pygame.image.load('assets\utilitaire\valider-non-selct.png')
-valider_buton_non_rect = valider_buton_non.get_rect((game.largeur_ecran / 2, game.hauteur_ecran / 2))
+valider_buton_non = pygame.image.load('assets/utilitaire/valider-non-selct.png')
+valider_buton_non_rect = valider_buton_non.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran * 4 / 5))
+valider_buton_non_grossie = pygame.transform.scale(valider_buton_non, (int(valider_buton_non_rect.width * 1.1), int(valider_buton_non_rect.height * 1.1)))
+valider_buton_non_grossie_rect = valider_buton_non_grossie.get_rect(center=valider_buton_non_rect.center)
 
 quit_bouton1 = pygame.image.load('assets/utilitaire/quit_button.png')
 quit_buton = pygame.transform.scale(quit_bouton1, (50, 50))
