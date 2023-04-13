@@ -15,10 +15,10 @@ titre_rect = titre.get_rect()
 titre_x = (game.largeur_ecran - titre_rect.width) / 2
 titre_y = (game.hauteur_ecran - titre_rect.height) / 4
 
-play_bouton = pygame.image.load('assets/utilitaire/play_button.png')
-play_rect = play_bouton.get_rect()
-play_rect.x = (game.largeur_ecran - play_rect.width) / 2
-play_rect.y = (game.hauteur_ecran - play_rect.height) / 2
+play_buton = pygame.image.load('assets/utilitaire/play_button.png')
+play_rect = play_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 2))
+play_grossie = pygame.transform.scale(play_buton, (int(play_rect.width * 1.1), int(play_rect.height * 1.1)))
+play_grossie_rect = play_grossie.get_rect(center=play_rect.center)
 
 valider_buton = pygame.image.load('assets/utilitaire/valider.png')
 valider_buton_rect = valider_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran * 4 / 5))

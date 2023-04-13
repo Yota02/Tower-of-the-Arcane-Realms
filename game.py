@@ -5,8 +5,8 @@ from monstre import Monstre
 class Game:
 
     def __init__(self):
-        self.is_playing = True
-        self.background = 3
+        self.is_playing = False
+        self.background = 1
         self.pressed = {}
         self.player = Player()
         self.all_player = pygame.sprite.Group()
