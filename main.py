@@ -5,14 +5,8 @@ from image import *
 pygame.init()
 pygame.display.set_caption("Tower of the Arcane Realms")
 
-font = pygame.font.Font("assets/utilitaire/8bitlimo.ttf", 32)
-input_rect = pygame.Rect(50, 50, 200, 32)
-
-
-
-text = ""
+font = pygame.font.SysFont("assets/utilitaire/8bitlimo.ttf", 32)
 text_color = (0, 0, 0)
-text_surface = font.render(text, True, text_color)
 
 game = Game()
 running = True
@@ -27,18 +21,9 @@ while running:
             print("fermeture du jeu")
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
-            if event.key == pygame.K_RETURN:
-                game.name = ''
-            elif event.key == pygame.K_BACKSPACE:
-                text = text[:-1]
-            else:
-                text += event.unicode
-
         elif event.type  == pygame.KEYUP:
             game.pressed[event.key] = False
             
-        
-
         elif event.type == pygame.MOUSEMOTION:
             if valider_buton_rect.collidepoint(event.pos):
                 valider_buton_affichee = valider_buton_grossie
@@ -167,13 +152,12 @@ while running:
             screen.blit(valider_buton_non, valider_buton_non_rect)
     elif game.is_playing and game.background == 4:
         screen.blit(carac_text, carac_text_rect)
-        text = font.render(str(game.carac_point), True, text_color)
-        screen.blit(text_surface, (100, 100))
+
+
+        text = font.render(f"Points restant : {game.carac_point}", True, text_color)
+        screen.blit(text, (10, 10))
         
-    elif game.is_playing and game.background == 5:
-        pygame.draw.rect(screen, text_color, input_rect, 2) 
-        input_text = font.render(text, True, text_color)
-        screen.blit(input_text, (input_rect.x + 5, input_rect.y + 5))
+        screen.blit(plus_buton, plus_rect)
 
     elif game.is_playing and game.background == 6:
         game.update(screen)

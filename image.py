@@ -10,7 +10,7 @@ ecran_taille = pygame.display.Info().current_w, pygame.display.Info().current_h
 screen = pygame.display.set_mode(ecran_taille)
 background = pygame.image.load('assets/background/48.jpg')
 
-titre = pygame.image.load('assets/utilitaire/titre.png')
+titre = pygame.image.load('assets/utilitaire/texte/titre.png')
 titre_rect = titre.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 4))
 
 sexe_text = pygame.image.load('assets/utilitaire/texte/sexe.png')
@@ -22,22 +22,22 @@ class_text_rect = class_text.get_rect(center=(game.largeur_ecran / 2, game.haute
 carac_text = pygame.image.load('assets/utilitaire/texte/carac.png')
 carac_text_rect = carac_text.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 7))
 
-play_buton = pygame.image.load('assets/utilitaire/play_button.png')
+play_buton = pygame.image.load('assets/utilitaire/buton/play_button.png')
 play_rect = play_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 2))
 play_grossie = pygame.transform.scale(play_buton, (int(play_rect.width * 1.1), int(play_rect.height * 1.1)))
 play_grossie_rect = play_grossie.get_rect(center=play_rect.center)
 
-valider_buton = pygame.image.load('assets/utilitaire/valider.png')
+valider_buton = pygame.image.load('assets/utilitaire/buton/valider.png')
 valider_buton_rect = valider_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran * 4 / 5))
 valider_buton_grossie = pygame.transform.scale(valider_buton, (int(valider_buton_rect.width * 1.1), int(valider_buton_rect.height * 1.1)))
 valider_buton_grossie_rect = valider_buton_grossie.get_rect(center=valider_buton_rect.center)
 
-valider_buton_non = pygame.image.load('assets/utilitaire/valider-non-selct.png')
+valider_buton_non = pygame.image.load('assets/utilitaire/buton/valider-non-selct.png')
 valider_buton_non_rect = valider_buton_non.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran * 4 / 5))
 valider_buton_non_grossie = pygame.transform.scale(valider_buton_non, (int(valider_buton_non_rect.width * 1.1), int(valider_buton_non_rect.height * 1.1)))
 valider_buton_non_grossie_rect = valider_buton_non_grossie.get_rect(center=valider_buton_non_rect.center)
 
-quit_bouton1 = pygame.image.load('assets/utilitaire/quit_button.png')
+quit_bouton1 = pygame.image.load('assets/utilitaire/buton/quit_button.png')
 quit_buton = pygame.transform.scale(quit_bouton1, (50, 50))
 quit_rect = quit_buton.get_rect()
 quit_rect.x = game.largeur_ecran - quit_rect.width + 20
@@ -78,3 +78,8 @@ bouclier = pygame.transform.scale(bouclier, taille_image)
 bouclier_rect = bouclier.get_rect(center=(game.largeur_ecran * 4 // 5, game.hauteur_ecran // 2))
 bouclier_grossie = pygame.transform.scale(bouclier, (int(bouclier_rect.width * 1.1), int(bouclier_rect.height * 1.1)))
 bouclier_grossie_rect = bouclier_grossie.get_rect(center=bouclier_rect.center)
+
+plus_buton = pygame.image.load('assets/utilitaire/buton/plus_button.png')
+plus_rect = play_buton.get_rect(center=(game.largeur_ecran / 2, game.hauteur_ecran / 2))
+plus_grossie = pygame.transform.scale(plus_buton, (int(plus_rect.width * 1.1), int(plus_rect.height * 1.1)))
+plus_grossie_rect = plus_grossie.get_rect(center=plus_rect.center)
