@@ -5,8 +5,8 @@ from monstre import Monstre
 class Game:
 
     def __init__(self):
-        self.is_playing = False
-        self.background = 1
+        self.is_playing = True
+        self.background = 4
         self.pressed = {}
         self.player = Player()
         self.all_player = pygame.sprite.Group()
@@ -15,6 +15,7 @@ class Game:
         self.largeur_ecran = pygame.display.Info().current_w
         self.sex = 0
         self.classe = 0
+        self.name = ''
         self.carac_point = 10
 
     def update(self, screen):

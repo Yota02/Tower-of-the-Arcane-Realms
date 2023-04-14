@@ -11,7 +11,7 @@ font = pygame.font.Font(None, 32)
 
 # définir la couleur du texte et du fond
 text_color = (0, 0, 0)
-bg_color = (255, 255, 255)
+bg_color = (255, 255, 255) 
 
 # définir le rectangle de la zone de saisie
 input_rect = pygame.Rect(50, 50, 200, 32)

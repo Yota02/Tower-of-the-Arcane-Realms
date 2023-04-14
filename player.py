@@ -13,6 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 500
         self.rect.y = 500
+        
 
     def mouvement_haut(self):
         self.rect.y += self.vitesse
