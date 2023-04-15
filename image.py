@@ -1,8 +1,8 @@
 import pygame
-from game2 import Game2
+from game import Game
 
 pygame.init()
-game = Game2()
+game = Game()
 selction_sex = False
 selction_class = False
 
