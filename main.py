@@ -7,10 +7,12 @@ pygame.display.set_caption("Tower of the Arcane Realms")
 
 font = pygame.font.SysFont("assets/utilitaire/8bitlimo.ttf", 32)
 text_color = (0, 0, 0)
+input_rect = pygame.Rect(50, 50, 200, 32)
 
 game = Game()
 running = True
-
+text = ""
+active = True
 
 while running:
     for event in pygame.event.get():
@@ -76,10 +78,12 @@ while running:
             if arc_rect.collidepoint(event.pos) and game.background == 3:
                 arc_affichee = arc_grossie
                 arc_affichee_rect = arc_grossie_rect
+            
+            
             else:
                 arc_affichee = arc
                 arc_affichee_rect = arc_rect
-
+            
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if play_rect.collidepoint(event.pos) and game.background == 1:
                 game.is_playing = True
@@ -87,12 +91,10 @@ while running:
             elif quit_rect.collidepoint(event.pos) and game.background == 1:
                 running = False
                 pygame.quit()
-
             elif valider_buton_rect.collidepoint(event.pos) and game.background == 2 and selction_sex:
                 game.background += 1
             elif valider_buton_rect.collidepoint(event.pos) and game.background == 3 and selction_class :
                 game.background += 1
-
             elif female_rect.collidepoint(event.pos) and game.background == 2:
                 female_affichee = female_grossie
                 female_affichee_rect = female_grossie_rect
@@ -151,13 +153,10 @@ while running:
         else:
             screen.blit(valider_buton_non, valider_buton_non_rect)
     elif game.is_playing and game.background == 4:
-        screen.blit(carac_text, carac_text_rect)
-
-
-        text = font.render(f"Points restant : {game.carac_point}", True, text_color)
-        screen.blit(text, (10, 10))
+        pygame.draw.rect(screen, (255, 255, 255), input_rect)
+        rendered_text = font.render(text, True, text_color)
+        screen.blit(rendered_text, input_rect)
         
-        screen.blit(plus_buton, plus_rect)
 
     elif game.is_playing and game.background == 6:
         game.update(screen)
